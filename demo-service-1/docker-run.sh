@@ -1,2 +1,1 @@
-#!/usr/bin/env bash
-docker run -d -p 8088:8088 --name spring-boot-app spring-boot-microservices-jbi:v1
+docker run -d -p 9088:9088 --name spring-boot-microservices-service-1 spring-boot-microservices-service-1:v1

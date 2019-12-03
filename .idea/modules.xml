@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/demo-service-1/service2.iml" filepath="$PROJECT_DIR$/demo-service-1/service2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/spring-boot-microservice-demo.iml" filepath="$PROJECT_DIR$/.idea/spring-boot-microservice-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/demo-service-1/spring-boot-microservices-service-1 (1).iml" filepath="$PROJECT_DIR$/demo-service-1/spring-boot-microservices-service-1 (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo-angular-app/demo-angular-app.iml" filepath="$PROJECT_DIR$/demo-angular-app/demo-angular-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo-service-alpha/service2.iml" filepath="$PROJECT_DIR$/demo-service-alpha/service2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo-config-server/spring-boot-microservices-config-server.iml" filepath="$PROJECT_DIR$/demo-config-server/spring-boot-microservices-config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo-service-alpha/spring-boot-microservices-service-1 (1).iml" filepath="$PROJECT_DIR$/demo-service-alpha/spring-boot-microservices-service-1 (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo-service-alpha/spring-boot-microservices-service-alpha.iml" filepath="$PROJECT_DIR$/demo-service-alpha/spring-boot-microservices-service-alpha.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo-service-discovery/spring-boot-microservices-service-discovery.iml" filepath="$PROJECT_DIR$/demo-service-discovery/spring-boot-microservices-service-discovery.iml" />
     </modules>
   </component>

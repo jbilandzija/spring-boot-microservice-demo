@@ -8,21 +8,27 @@
         <outputRelativeToContentRoot value="true" />
         <module name="spring-boot-microservices-service-discovery" />
         <module name="spring-boot-microservices-service-1 (1)" />
+        <module name="spring-boot-microservices-config-server" />
         <module name="service2" />
+        <module name="spring-boot-microservices-service-alpha" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="service2" target="1.8" />
+      <module name="spring-boot-microservices-config-server" target="1.8" />
       <module name="spring-boot-microservices-service-1 (1)" target="1.8" />
       <module name="spring-boot-microservices-service-1 (2)" target="1.8" />
+      <module name="spring-boot-microservices-service-alpha" target="1.8" />
       <module name="spring-boot-microservices-service-discovery" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="service2" options="-parameters" />
+      <module name="spring-boot-microservices-config-server" options="-parameters" />
       <module name="spring-boot-microservices-service-1 (1)" options="-parameters" />
       <module name="spring-boot-microservices-service-1 (2)" options="-parameters" />
+      <module name="spring-boot-microservices-service-alpha" options="-parameters" />
       <module name="spring-boot-microservices-service-discovery" options="-parameters" />
     </option>
   </component>

@@ -2,9 +2,10 @@ package com.example.service.alpha.service;
 
 import com.example.service.alpha.dao.UserDao;
 import com.example.service.alpha.model.User;
-import com.example.service.alpha.model.UserDto;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -17,6 +18,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static java.util.Collections.singletonList;
+import static java.util.Objects.isNull;
 
 @Service(value = "userService")
 public class UserServiceImpl implements UserDetailsService, UserService {
@@ -56,31 +58,23 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     }
 
     @Override
-    public User findById(int id) {
-        Optional<User> optionalUser = userDao.findById((long) id);
+    public User findById(long id) {
+        Optional<User> optionalUser = userDao.findById(id);
         return optionalUser.isPresent() ? optionalUser.get() : null;
     }
 
     @Override
-    public UserDto update(UserDto userDto) {
-        User user = findById(userDto.getId());
+    public void update(User user) {
         if (user != null) {
-            BeanUtils.copyProperties(userDto, user, "password");
+            BeanUtils.copyProperties(user, user, "password");
             userDao.save(user);
         }
-        return userDto;
     }
 
     @Override
-    public User save(UserDto user) {
-        User newUser = new User();
-        newUser.setUsername(user.getUsername());
-        newUser.setFirstName(user.getFirstName());
-        newUser.setLastName(user.getLastName());
-        newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
-        newUser.setAge(user.getAge());
-        newUser.setSalary(user.getSalary());
-        return userDao.save(newUser);
+    public User save(User user) {
+        user.setPassword(bcryptEncoder.encode(user.getPassword()));
+        return userDao.save(user);
     }
 }
 

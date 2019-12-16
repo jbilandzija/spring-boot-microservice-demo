@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
 
 import javax.management.relation.Role;
 import javax.persistence.*;
@@ -16,12 +17,13 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "user_entity")
+// User is reserved keyword in Postgres
+@Table(name = "users")
 public class User {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id;
+    private long id;
     @Column
     private String firstName;
     @Column
@@ -29,11 +31,13 @@ public class User {
     @Column
     private String username;
     @Column
-    @JsonIgnore
+    //@JsonIgnore
     private String password;
     @Column
+    @Nullable
     private long salary;
     @Column
+    @Nullable
     private int age;
 
 }

@@ -1,7 +1,7 @@
 package com.example.service.alpha.config;
 
-import com.example.service.alpha.model.Constants;
 import com.example.service.alpha.model.User;
+import com.example.service.alpha.shared.Constants;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -10,9 +10,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.function.Function;
+
+import static com.example.service.alpha.shared.Constants.SIGNING_KEY;
+import static java.util.Arrays.asList;
 
 @Component
 public class JwtTokenUtil implements Serializable {
@@ -32,7 +34,7 @@ public class JwtTokenUtil implements Serializable {
 
     private Claims getAllClaimsFromToken(String token) {
         return Jwts.parser()
-                .setSigningKey(Constants.SIGNING_KEY)
+                .setSigningKey(SIGNING_KEY)
                 .parseClaimsJws(token)
                 .getBody();
     }
@@ -49,14 +51,14 @@ public class JwtTokenUtil implements Serializable {
     private String doGenerateToken(String subject) {
 
         Claims claims = Jwts.claims().setSubject(subject);
-        claims.put("scopes", Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN")));
+        claims.put("scopes", asList(new SimpleGrantedAuthority("ROLE_ADMIN")));
 
         return Jwts.builder()
                 .setClaims(claims)
-                .setIssuer("http://devglan.com")
+                .setIssuer("jbi")
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + Constants.ACCESS_TOKEN_VALIDITY_SECONDS * 1000))
-                .signWith(SignatureAlgorithm.HS256, Constants.SIGNING_KEY)
+                .signWith(SignatureAlgorithm.HS256, SIGNING_KEY)
                 .compact();
     }
 

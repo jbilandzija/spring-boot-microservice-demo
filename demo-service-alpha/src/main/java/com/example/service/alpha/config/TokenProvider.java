@@ -1,6 +1,6 @@
 package com.example.service.alpha.config;
 
-import com.example.service.alpha.model.Constants;
+import com.example.service.alpha.shared.Constants;
 import io.jsonwebtoken.*;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -14,6 +14,8 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+
+import static com.example.service.alpha.shared.Constants.SIGNING_KEY;
 
 @Component
 public class TokenProvider {
@@ -32,7 +34,7 @@ public class TokenProvider {
 
     private Claims getAllClaimsFromToken(String token) {
         return Jwts.parser()
-                .setSigningKey(Constants.SIGNING_KEY)
+                .setSigningKey(SIGNING_KEY)
                 .parseClaimsJws(token)
                 .getBody();
     }
@@ -49,7 +51,7 @@ public class TokenProvider {
         return Jwts.builder()
                 .setSubject(authentication.getName())
                 .claim(Constants.AUTHORITIES_KEY, authorities)
-                .signWith(SignatureAlgorithm.HS256, Constants.SIGNING_KEY)
+                .signWith(SignatureAlgorithm.HS256, SIGNING_KEY)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + Constants.ACCESS_TOKEN_VALIDITY_SECONDS * 1000))
                 .compact();
@@ -64,7 +66,7 @@ public class TokenProvider {
 
     UsernamePasswordAuthenticationToken getAuthentication(final String token, final Authentication existingAuth, final UserDetails userDetails) {
 
-        final JwtParser jwtParser = Jwts.parser().setSigningKey(Constants.SIGNING_KEY);
+        final JwtParser jwtParser = Jwts.parser().setSigningKey(SIGNING_KEY);
 
         final Jws<Claims> claimsJws = jwtParser.parseClaimsJws(token);
 

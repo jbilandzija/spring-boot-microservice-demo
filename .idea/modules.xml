@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/demo-angular-app/demo-angular-app.iml" filepath="$PROJECT_DIR$/demo-angular-app/demo-angular-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo-service-alpha/service2.iml" filepath="$PROJECT_DIR$/demo-service-alpha/service2.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo-config-server/spring-boot-microservices-config-server.iml" filepath="$PROJECT_DIR$/demo-config-server/spring-boot-microservices-config-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo-service-alpha/spring-boot-microservices-service-1 (1).iml" filepath="$PROJECT_DIR$/demo-service-alpha/spring-boot-microservices-service-1 (1).iml" />

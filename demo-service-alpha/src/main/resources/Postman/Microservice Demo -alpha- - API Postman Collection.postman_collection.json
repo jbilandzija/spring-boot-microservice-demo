@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "ad37c576-828d-44bf-946a-08419309e46d",
+		"name": "Microservice Demo \"alpha\" - API Postman Collection",
+		"description": "See Repo: https://github.com/jbilandzija/spring-boot-microservice-demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\":\"Michael\",\n\t\"lastName\":\"Smith\",\n\t\"username\":\"micha\",\n\t\"password\":\"foo\",\n\t\"salary\":\"10\",\n\t\"age\":\"29\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8083/api/demo/users/save",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"demo",
+						"users",
+						"save"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "eef69840-94cc-40e6-9ffc-e11850810b37",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "11225599-cdbf-44fc-b5ca-3ed453bb2703",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

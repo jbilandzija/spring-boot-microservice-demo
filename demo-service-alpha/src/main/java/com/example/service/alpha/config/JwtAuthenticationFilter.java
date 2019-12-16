@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static com.example.service.alpha.model.Constants.HEADER_STRING;
-import static com.example.service.alpha.model.Constants.TOKEN_PREFIX;
+import static com.example.service.alpha.shared.Constants.HEADER_STRING;
+import static com.example.service.alpha.shared.Constants.TOKEN_PREFIX;
 import static java.util.Collections.singletonList;
 
 /**
